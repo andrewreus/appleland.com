@@ -1,0 +1,3 @@
+Model --> Model
+View --> Template
+Controller --> View

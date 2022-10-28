@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ➤ {{ mod_item.name }}
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'include/_sidebar.html' %}
+{% endblock %}
+
+{% block content %}
+    <div class="card mb-3">
+        <div class="card-header">
+            Category: <a href="{{ mod_item.category.get_absolute_url }}" class="text-dark">{{ mod_item.category.name }}</a>
+        </div>
+        <div class="card-body">
+            <div class="media-body">
+                {% if mod_item.image %}
+                <img src="{{ mod_item.image.url }}" alt="" width="350" class="mr-3">
+                {% endif %}
+                <div class="media-body">
+                    <h5 class="card-title">{{ mod_item.name }}</h5>
+                    <p class="card-text">{{ mod_item.characteristics|safe|linebreaks}}</p>
+                    <h4><p class="card-text">{{ mod_item.price|safe }} грн</p></h4>
+                    <p></p>
+                    <a href="{{ mod.get_absolute_url }}" class="btn btn-primary">Купити</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
